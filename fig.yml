@@ -1,0 +1,13 @@
+bitcoin:
+    build: bitcoin/
+
+    volumes:
+        - /bitcoin:/bitcoin
+
+    command: /start.sh
+    #command: bitcoind -debug=1 -printtoconsole -logtimestamps -txindex=1 -server -regtest -datadir=/bitcoin/regtest/datadir/ -rpcuser=bitcoinrpc -rpcpassword=password -rpcport=8331
+    #command: /bin/bash -c "echo 'this gets captured'; bitcoind -debug=1 -printtoconsole -logtimestamps -txindex=1 -server -regtest -datadir=/bitcoin/regtest/datadir/ -rpcuser=bitcoinrpc -rpcpassword=password -rpcport=8331"
+
+    ports:
+        # bitcoind json rpc port
+        - "8332:8332"
